@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1{
+  text-align: center;
+}
+.main-principal{
+  padding-top: 20px;
+  width: 50%;
+  margin: auto;
+}
+.main-principal h1{
+  text-align: center;
+}
+.main-principal .formulario{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: aquamarine;
+}
+
+.main-principal .formulario .nombre,
+.main-principal .formulario .email,
+.main-principal .formulario .edad,
+.main-principal .formulario .desplegable,
+.main-principal .formulario .enviar{
+  margin-top: 10px;
+}
+.color-rojo{
+  color: red;
+} 
+.color-verde{
+  color: green;
+}
+.color-azul{
+  color:blue;
+}
+.background-red{
+  background-color: red;
+}
+.background-green{
+  background-color: green;
+}
+.background-blue{
+  background-color: blue;
+}

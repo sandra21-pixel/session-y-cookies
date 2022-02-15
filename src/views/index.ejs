@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="background-<%= locals.bgcolor ? bgcolor : null %>" >
+    <main class="main-principal">
+    
+      <% if(locals.datosUser){ %>
+        <p>Hola <strong><%= datosUser.name %></strong>, elegiste el color: <strong><%= datosUser.colores %></strong>, tu email es:<strong><%= datosUser.email %></strong>, y tu edad es:<strong><%= datosUser.edad %></strong> </p>
+      <%}%> 
+    
+    <h1>Hola visitante, complete este formulario</h1>
+
+    <form  class="formulario" action="/" method="POST">
+      <div class="nombre">
+        <label for="name">Igrese su nombre</label> <br>
+        <input type="text" name="name" id="name" value="<%= locals.data ? data.name : null %>">
+        <% if(locals.errors && errors.name){%>
+          <p class=" <%= locals.errors && errors.name ? 'color-rojo' : null %>"><%= errors.name.msg %> </p>
+        <%}%>
+      </div>
+
+      <div class="email">
+        <label for="email">Ingrese su email</label><br>
+        <input type="email" name="email" id="email" value="<%= locals.data ? data.email : null %>">
+        <% if(locals.errors && errors.email){%>
+          <p class=" <%= locals.errors && errors.email ? 'color-rojo' : null %>"><%= errors.email.msg %> </p>
+        <%}%>
+      </div>
+      <div class="edad">
+        <label for="edad">Ingrese su edad</label><br>
+        <input type="number" name="edad" id="edad" value="<%= locals.data ? data.edad : null %>">
+        <% if(locals.errors && errors.edad){%>
+          <p class=" <%= locals.errors && errors.edad ? 'color-rojo' : null %>"><%= errors.edad.msg %> </p>
+        <%}%>
+      </div> 
+      <div class="desplegable">
+        <label for="colores">Elegi tu color</label>
+          <select name="colores" id="colores">
+            <option value="" hidden >Elegi una opcion</option>
+            <option value="green" <%= locals.data && data.colores === "green" ? 'selected' : null %>>Verde</option>
+            <option value="blue" <%= locals.data && data.colores === "blue" ? 'selected' : null %>>Azul</option>
+            <option value="red" <%= locals.data && data.colores === "red" ? 'selected' : null %>>Rojo</option>
+          </select>
+          <% if(locals.errors && errors.colores){%>
+            <p class=" <%= locals.errors && errors.colores ? 'color-rojo' : null %>"><%= errors.colores.msg %> </p>
+          <%}%>
+        </div>
+        <div>
+            <input type="checkbox" name="recordame" id="recordame">
+            <label for="recordame">Recuerdame</label>
+        </div>
+        <div class="enviar"> 
+            <button type="submit">Enviar</button>
+        </div>
+        <a href="/destroy">Olvidar el color</a>
+    </form>
+  </main>
+  </body>
+</html>
